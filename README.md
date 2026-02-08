@@ -1,6 +1,5 @@
 # Heart Disease Prediction App ❤️
-
-Hadi application Flask kat-predicti l-marda dial l-qelb b-istikhdam Machine Learning.
+application de prediction de maladie cardiaque
 
 ## Setup
 1. **Clone the project:** `git clone https://github.com/VOTRE_NOM/HEART_APP.git`
