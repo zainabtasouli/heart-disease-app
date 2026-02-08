@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historique : {{ patient.nom }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background: #f8fafc; font-family: 'Inter', sans-serif; padding: 30px; }
+        .chart-container { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .history-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold">Historique : {{ patient.nom }} {{ patient.prenom }}</h2>
+            <a href="/dashboard" class="btn btn-outline-dark rounded-pill px-4">← Dashboard</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7">
+                <div class="chart-container text-center">
+                    <h6 class="fw-bold mb-3">📈 Évolution du Risque Cardiaque</h6>
+                    <canvas id="riskChart"></canvas>
+                </div>
+            </div>
+
+            
+            <div class="col-md-5">
+                <div class="chart-container text-center">
+                    <h6 class="fw-bold mb-3">📊 Indicateurs Bio-métriques</h6>
+                    <canvas id="bioChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-card">
+            <table class="table table-hover align-middle mb-0 text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Résultat</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in patient.analyses %}
+                    <tr>
+                        <td>{{ a.date.strftime('%d/%m/%Y') }}</td>
+                        <td>
+                            <span class="badge {% if a.resultat == 1 %}bg-danger{% else %}bg-success{% endif %} rounded-pill px-3">
+                                {{ "Risque" if a.resultat == 1 else "Sain" }}
+                            </span>
+                        </td>
+                        <td>
+                            <a href="/download_pdf/{{ a.id }}" class="btn btn-sm btn-outline-primary shadow-sm px-3">PDF</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const dates = [{% for a in patient.analyses %}"{{ a.date.strftime('%d/%m') }}",{% endfor %}];
+        const riskLevels = [{% for a in patient.analyses %}{{ a.resultat }},{% endfor %}];
+        
+        // Graphe Line
+        new Chart(document.getElementById('riskChart'), {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Risque (1: Élevé, 0: Sain)',
+                    data: riskLevels,
+                    borderColor: '#ef4444',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: { scales: { y: { min: -0.5, max: 1.5 } } }
+        });
+
+        // Graphe Bar (Indicateurs)
+        {% if patient.analyses %}
+        {% set last = patient.analyses[-1] %}
+        new Chart(document.getElementById('bioChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Tension (mmHg)', 'Cholestérol (mg/dl)'],
+                datasets: [{
+                    data: [
+                        {{ last.details.get('Tension', '0').replace(' mmHg','') }},
+                        {{ last.details.get('Cholesterol', '0').replace(' mg/dl','') }}
+                    ],
+                    backgroundColor: ['#3b82f6', '#10b981']
+                }]
+            },
+            options: { plugins: { legend: { display: false } } }
+        });
+        {% endif %}
+    </script>
+</body>
+</html>

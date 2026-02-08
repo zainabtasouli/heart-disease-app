@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CardioPro | VIP Access</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            height: 100vh; display: flex; align-items: center; font-family: 'Poppins', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            width: 100%; max-width: 420px; margin: auto;
+        }
+        .form-control {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white; border-radius: 12px; padding: 12px;
+        }
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.12);
+            color: white; border-color: #6366f1; box-shadow: none;
+        }
+        .btn-vip {
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            border: none; color: white; font-weight: 700;
+            padding: 12px; border-radius: 12px; transition: 0.3s;
+        }
+        .btn-vip:hover { transform: scale(1.02); opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <div class="glass-card text-center">
+        <h2 class="text-white fw-bold mb-2">🩺 CardioPro</h2>
+        <p class="text-white-50 mb-4">Système Expert de Cardiologie</p>
+        <form method="POST">
+            <input type="text" name="username" class="form-control mb-3" placeholder="Nom d'utilisateur" required>
+            <input type="password" name="password" class="form-control mb-4" placeholder="Mot de passe" required>
+            <button type="submit" class="btn btn-vip w-100 shadow-lg">SE CONNECTER</button>
+        </form>
+        <div class="mt-4"><a href="/register" class="text-white-50 small text-decoration-none">Nouveau ici ? Créer un compte</a></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nouveau Patient</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f8fafc; height: 100vh; display: flex; align-items: center; font-family: 'Inter', sans-serif; }
+        .add-card { background: white; border-radius: 25px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 500px; margin: auto; }
+        .label-v { font-weight: bold; color: #64748b; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="add-card">
+        <h3 class="fw-bold mb-4 text-center">👤 Nouveau Patient</h3>
+        <form method="POST">
+            <div class="mb-3"><label class="label-v">Nom de famille</label><input type="text" name="nom" class="form-control" required></div>
+            <div class="mb-3"><label class="label-v">Prénom</label><input type="text" name="prenom" class="form-control" required></div>
+            <div class="mb-3"><label class="label-v">Âge du patient</label><input type="number" name="age" class="form-control" required></div>
+            <div class="mb-4"><label class="label-v">Genre / Sexe</label>
+                <select name="sexe" class="form-select"><option>Homme</option><option>Femme</option></select>
+            </div>
+            <div class="d-flex gap-2">
+                <a href="/dashboard" class="btn btn-outline-secondary w-100 rounded-pill">← RETOUR</a>
+                <button type="submit" class="btn btn-dark w-100 rounded-pill">ENREGISTRER</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

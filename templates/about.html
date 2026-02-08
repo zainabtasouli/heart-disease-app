@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Conseils Médicaux | CardioPro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { background: #f8fafc; font-family: 'Inter', 'Cairo', sans-serif; padding: 40px 0; }
+        .card-advice { 
+            background: white; border-radius: 20px; border: none; 
+            padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: 0.3s; height: 100%;
+        }
+        .card-advice:hover { transform: translateY(-10px); }
+        .lang-ar { direction: rtl; text-align: right; font-family: 'Cairo', sans-serif; border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px; }
+        .lang-fr { text-align: left; color: #1e293b; }
+        .header-section { background: #1e293b; color: white; border-radius: 25px; padding: 40px; margin-bottom: 40px; }
+        .icon-box { font-size: 2.5rem; margin-bottom: 20px; }
+        .badge-vip { background: #3b82f6; color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 1100px;">
+        <div class="header-section shadow-lg d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="fw-bold mb-2">💡 Guide de Prévention Cardiaque</h1>
+                <h4 class="lang-ar mb-0" style="border:none; padding:0;">دليل الوقاية من أمراض القلب</h4>
+            </div>
+            <a href="/dashboard" class="btn btn-light btn-lg rounded-pill px-5 fw-bold shadow">← Dashboard</a>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card-advice">
+                    <div class="icon-box">🥗</div>
+                    <div class="lang-fr">
+                        <h5 class="fw-bold">Alimentation Équilibrée</h5>
+                        <p>Réduisez la consommation de sel et de graisses saturées. Privilégiez les fibres, les fruits et les légumes frais.</p>
+                    </div>
+                    <div class="lang-ar">
+                        <h5 class="fw-bold">التغذية المتوازنة</h5>
+                        <p>قلل من استهلاك الملح والدهون المشبعة. ركز على الألياف والفواكه والخضروات الطازجة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-advice">
+                    <div class="icon-box">🏃‍♂️</div>
+                    <div class="lang-fr">
+                        <h5 class="fw-bold">Activité Physique</h5>
+                        <p>Pratiquez au moins 30 minutes de marche rapide par jour pour renforcer votre muscle cardiaque.</p>
+                    </div>
+                    <div class="lang-ar">
+                        <h5 class="fw-bold">النشاط البدني</h5>
+                        <p>مارس المشي السريع لمدة 30 دقيقة على الأقل يوميًا لتقوية عضلة القلب.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-advice">
+                    <div class="icon-box">🧘‍♂️</div>
+                    <div class="lang-fr">
+                        <h5 class="fw-bold">Gestion du Stress</h5>
+                        <p>Le stress chronique augmente la tension artérielle. Pratiquez des exercices de respiration ou de méditation.</p>
+                    </div>
+                    <div class="lang-ar">
+                        <h5 class="fw-bold">التحكم في التوتر</h5>
+                        <p>الإجهاد المزمن يزيد من ضغط الدم. مارس تمارين التنفس أو التأمل بانتظام.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-advice border-start border-danger border-4">
+                    <div class="icon-box">🚭</div>
+                    <div class="lang-fr">
+                        <h5 class="fw-bold text-danger">Arrêt du Tabac</h5>
+                        <p>Le tabagisme est la principale cause évitable des maladies cardiovasculaires. Demandez de l'aide pour arrêter.</p>
+                    </div>
+                    <div class="lang-ar">
+                        <h5 class="fw-bold text-danger">الإقلاع عن التدخين</h5>
+                        <p>التدخين هو السبب الرئيسي لأمراض القلب والذي يمكن تجنبه. اطلب المساعدة للإقلاع فوراً.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 bg-white p-4 rounded-4 shadow-sm">
+            <h5 class="fw-bold mb-4 text-center text-primary">Tableau de Référence / جدول المراجع</h5>
+            
+            <div class="table-responsive">
+                <table class="table table-bordered text-center align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Catégorie / الفئة</th>
+                            <th>Tension (Systolique) / الضغط</th>
+                            <th>Status / الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-success">
+                            <td>Normale / طبيعي</td>
+                            <td>Moins de 120 mmHg</td>
+                            <td>Idéal / مثالي</td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>Élevée / مرتفع قليلاً</td>
+                            <td>120 - 129 mmHg</td>
+                            <td>À surveiller / يحتاج مراقبة</td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>Hypertension / ضغط مرتفع</td>
+                            <td>Plus de 140 mmHg</td>
+                            <td>Consulter / استشارة طبيب</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mt-5 p-4 bg-primary text-white rounded-4 shadow-lg text-center">
+            <h5 class="fw-bold mb-2">🤖 Note de l'Intelligence Artificielle</h5>
+            <p class="mb-0">"La prévention est le meilleur traitement. Ce système IA est là pour vous aider à détecter les risques tôt."</p>
+            <p class="lang-ar mt-2 mb-0" style="border:none;">"الوقاية خير من العلاج. نظام الذكاء الاصطناعي هذا وجد لمساعدتكم في الكشف المبكر عن المخاطر."</p>
+        </div>
+    </div>
+</body>
+</html>

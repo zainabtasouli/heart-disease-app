@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analyse Clinique</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f1f5f9; padding: 30px; }
+        .p-card { background: white; border-radius: 25px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 900px;">
+        <div class="p-card">
+            <h3 class="fw-bold mb-1">Diagnostic IA : {{ patient.nom }} {{ patient.prenom }}</h3>
+            <p class="text-muted mb-4 small">{{ patient.sexe }} | {{ patient.age }} ans</p>
+            <form method="POST">
+                <div class="row g-3">
+                    <div class="col-md-4"><label class="small fw-bold">Tension (mm/Hg)</label><input type="number" name="trestbps" class="form-control" value="120"></div>
+                    <div class="col-md-4"><label class="small fw-bold">Cholestérol (mg/dl)</label><input type="number" name="chol" class="form-control" value="200"></div>
+                    <div class="col-md-4"><label class="small fw-bold">Fréquence Max</label><input type="number" name="thalach" class="form-control" value="150"></div>
+                    <div class="col-md-6"><label class="small fw-bold">Type de Douleur</label>
+                        <select name="cp" class="form-select"><option>Angine typique</option><option>Angine atypique</option><option>Asymptomatique</option></select>
+                    </div>
+                    <div class="col-md-3"><label class="small fw-bold">Glycémie > 120</label><select name="fbs" class="form-select"><option>Non</option><option>Oui</option></select></div>
+                    <div class="col-md-3"><label class="small fw-bold">Angine d'Effort</label><select name="exang" class="form-select"><option>Non</option><option>Oui</option></select></div>
+                    <div class="col-md-4"><label class="small fw-bold">ECG Repos</label><select name="restecg" class="form-select"><option>Normal</option><option>Anomalie ST-T</option><option>Hypertrophie</option></select></div>
+                    <div class="col-md-4"><label class="small fw-bold">Pente ST</label><select name="slope" class="form-select"><option>Ascendant</option><option>Plat</option><option>Descendant</option></select></div>
+                    <div class="col-md-4"><label class="small fw-bold">Vaisseaux (0-3)</label><input type="number" name="ca" class="form-control" value="0"></div>
+                    <div class="col-md-6"><label class="small fw-bold">Oldpeak (ST)</label><input type="number" step="0.1" name="oldpeak" class="form-control" value="0.0"></div>
+                    <div class="col-md-6"><label class="small fw-bold">Thalassémie</label><select name="thal" class="form-select"><option>Normal</option><option>Défaut fixe</option><option>Défaut réversible</option></select></div>
+                </div>
+                <div class="d-flex gap-3 mt-5">
+                    <a href="/dashboard" class="btn btn-outline-secondary w-50 py-3 rounded-pill">← ANNULER</a>
+                    <button type="submit" class="btn btn-primary w-50 py-3 rounded-pill fw-bold">ANALYSER AVEC L'IA</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
